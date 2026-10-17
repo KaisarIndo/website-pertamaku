@@ -1,0 +1,154 @@
+/* Variabel Warna (Sistem Tema) */
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --nav-bg: #2c3e50;
+    --nav-text: #ffffff;
+    --primary-btn: #008CBA;
+}
+
+/* Tema Dark Mode */
+body.dark-theme {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --nav-bg: #1f1f1f;
+    --primary-btn: #00a8e8;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar Flexbox Layout */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 1rem 2rem;
+}
+
+.logo {
+    color: var(--nav-text);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--nav-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #4CAF50;
+}
+
+/* Tombol Mode Tema */
+.btn-theme {
+    background-color: transparent;
+    border: 1px solid var(--nav-text);
+    color: var(--nav-text);
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-theme:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Header & Container */
+header {
+    text-align: center;
+    padding: 3rem 1rem 1rem 1rem;
+}
+
+.container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+/* Tombol Utama */
+#btnSapa {
+    background-color: var(--primary-btn);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pesan-tersembunyi {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+/* --- Sembunyikan Tombol Hamburger di Layar Komputer/Desktop --- */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--nav-text);
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* --- MEDIA QUERY UNTUK LAYAR HP (Maksimal Lebar 768px) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Tampilkan tombol hamburger di HP */
+    }
+
+    .nav-links {
+        display: none; /* Sembunyikan menu secara bawaan */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background-color: var(--nav-bg);
+        padding: 1.5rem 0;
+        text-align: center;
+        gap: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Class untuk menampilkan menu saat diklik */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .container {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
